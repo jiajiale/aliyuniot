@@ -1,5 +1,5 @@
 # aliyun-iot
-2018最新sdk封装composer包
+2018最新sdk封装composer包 在Leslie1sMe基础上更新
 
 
 使用方法：引入项目文件
