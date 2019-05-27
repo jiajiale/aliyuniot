@@ -10,6 +10,7 @@ use Leslie\Iot\Request\V20180120\BatchCheckDeviceNamesRequest;
 use Leslie\Iot\Request\V20180120\BatchRegisterDeviceRequest;
 use Leslie\Iot\Request\V20180120\GetDeviceStatusRequest;
 use Leslie\Iot\Request\V20180120\PubRequest;
+use Leslie\Iot\Request\V20180120\QueryDeviceDetailRequest;
 use Leslie\Iot\Request\V20180120\RegisterDeviceRequest;
 use Leslie\Iot\Request\V20180120\CreateProductRequest;
 use Leslie\Iot\Request\V20170420\UpdateProductRequest;
@@ -145,6 +146,20 @@ class AliyunIot
     public function registerDevice($deviceName, $productKey)
     {
         $request = new RegisterDeviceRequest();
+        $request->setDeviceName($deviceName);
+        $request->setProductKey($productKey);
+        return $this->_client->getAcsResponse($request);
+    }
+
+    /**
+     * 查询设备详情
+     * @param $deviceName
+     * @param $productKey
+     * @return mixed|\SimpleXMLElement
+     */
+    public function queryDeviceDetail($deviceName, $productKey)
+    {
+        $request = new QueryDeviceDetailRequest();
         $request->setDeviceName($deviceName);
         $request->setProductKey($productKey);
         return $this->_client->getAcsResponse($request);
